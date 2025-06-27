@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
-from src.schema import ProdutosSchema  # type: ignore
-from src.data import produtos  # type: ignore
+from .schema import ProdutosSchema  # type: ignore
+from .data import produtos  # type: ignore
 from typing import List
 app = FastAPI()
 
