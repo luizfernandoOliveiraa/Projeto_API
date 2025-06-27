@@ -31,5 +31,15 @@ def test_pegar_produto():
     
 def test_produto_inexistente():
     response = client.get("/produtos/999")
-    assert response.json() == {"Mensagem": "Produto não encontrado"}
+    assert response.json() == {"detail": "Produto não encontrado"}
 
+
+def test_criar_produto():
+    response = client.post("/produtos", json={
+        "nome": "Novo Produto",
+        "descricao": "Descrição do novo produto",
+        "preco": 100.00
+    })
+    assert response.status_code == 200
+    
+    
