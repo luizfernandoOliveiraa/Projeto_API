@@ -20,3 +20,16 @@ def test_tamanho_produtos():
     response = client.get("/produtos")
     assert len(response.json()) == 3
     
+def test_pegar_produto():
+    response = client.get("/produtos/1")
+    assert response.json() == {
+        "id": 1,
+        "nome": "Smartphone",
+        "descricao": "Smartphone com tela de 6.5 polegadas",
+        "preco": 1999.99,
+    }
+    
+def test_produto_inexistente():
+    response = client.get("/produtos/999")
+    assert response.json() == {"Mensagem": "Produto não encontrado"}
+
