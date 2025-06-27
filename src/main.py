@@ -1,14 +1,14 @@
 from fastapi import FastAPI, HTTPException
-from .schema import ProdutosSchema  # type: ignore
-from .data import produtos  # type: ignore
-
+from src.schema import ProdutosSchema  # type: ignore
+from src.data import produtos  # type: ignore
+from typing import List
 app = FastAPI()
 
 @app.get("/")
 def ola_mundo():
     return {"message": "Olá, mundo!"}
 
-@app.get("/produtos", response_model=list[ProdutosSchema])  # type: ignore
+@app.get("/produtos", response_model=List[ProdutosSchema])  # type: ignore
 def listar_produtos():
     return produtos
 
