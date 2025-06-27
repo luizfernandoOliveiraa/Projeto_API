@@ -1,5 +1,5 @@
 [project]
-name = "projeto-api"
+name = "projeto_api"
 version = "0.1.0"
 description = ""
 authors = [
@@ -12,7 +12,8 @@ dependencies = [
     "uvicorn (>=0.34.3,<0.35.0)",
     "taskipy (>=1.14.1,<2.0.0)",
     "pytest (>=8.4.1,<9.0.0)",
-    "httpx (>=0.28.1,<0.29.0)"
+    "httpx (>=0.28.1,<0.29.0)",
+    "ruff (>=0.12.1,<0.13.0)",
 ]
 
 
@@ -24,6 +25,6 @@ build-backend = "poetry.core.masonry.api"
 python = ">=3.12,<4.0"
 
 [tool.taskipy.tasks]
-run = "uvicorn main:app --reload"
-test = "pytest -v testes.py"
+run = "uvicorn src.main:app --reload"
+test = "python -m pytest -v test/testes.py"
 kill = "kill -9 $(lsof -t -i:8000)"
