@@ -22,8 +22,5 @@ jobs:
             - name: Install dependencies with Poetry
               run: poetry install
 
-            - name: Format code with Isort
-              run: poetry run isort .
-
             - name: Run tests with taskipy
               run: poetry run task test
