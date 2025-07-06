@@ -4,10 +4,6 @@ from .data import produtos  # type: ignore
 from typing import List
 app = FastAPI()
 
-@app.get("/")
-def ola_mundo():
-    return {"message": "Olá, mundo!"}
-
 @app.get("/produtos", response_model=List[ProdutosSchema])  # type: ignore
 def listar_produtos():
     return produtos
